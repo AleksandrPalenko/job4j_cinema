@@ -1,0 +1,272 @@
+2022-05-03 13:32:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "DATABASECHANGELOGLOCK" не найдена
+Table "DATABASECHANGELOGLOCK" not found; SQL statement:
+SELECT COUNT(*) FROM DATABASECHANGELOGLOCK [42102-200]
+2022-05-03 13:35:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "
+
+CREATE TABLE TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID)
+);"; ожидалось "identifier"
+Syntax error in SQL statement "
+
+CREATE TABLE TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID)
+);"; expected "identifier"; SQL statement:
+
+
+CREATE TABLE ticket (
+    id SERIAL PRIMARY KEY,
+    session_id INT NOT NULL REFERENCES sessions(id),
+    row INT NOT NULL,
+    cell INT NOT NULL,
+    user_id INT NOT NULL REFERENCES users(id)
+); [42001-200]
+2022-05-03 13:37:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "USERS" уже существует
+Table "USERS" already exists; SQL statement:
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR NOT NULL,
+  email VARCHAR NOT NULL UNIQUE,
+  phone VARCHAR NOT NULL UNIQUE
+); [42101-200]
+2022-05-03 13:38:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "USERS" уже существует
+Table "USERS" already exists; SQL statement:
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR NOT NULL,
+  email VARCHAR NOT NULL UNIQUE,
+  phone VARCHAR NOT NULL UNIQUE
+); [42101-200]
+2022-05-03 18:53:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "USERS" уже существует
+Table "USERS" already exists; SQL statement:
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR NOT NULL,
+  email VARCHAR NOT NULL UNIQUE,
+  phone VARCHAR NOT NULL UNIQUE
+); [42101-200]
+2022-05-03 18:54:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "
+
+CREATE TABLE IF NOT EXISTS TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID)
+);"; ожидалось "identifier"
+Syntax error in SQL statement "
+
+CREATE TABLE IF NOT EXISTS TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID)
+);"; expected "identifier"; SQL statement:
+
+
+CREATE TABLE if not exists ticket (
+    id SERIAL PRIMARY KEY,
+    session_id INT NOT NULL REFERENCES sessions(id),
+    row INT NOT NULL,
+    cell INT NOT NULL,
+    user_id INT NOT NULL REFERENCES users(id)
+); [42001-200]
+2022-05-03 18:58:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "
+
+CREATE TABLE IF NOT EXISTS TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID),
+    CONSTRAINT SESSION_UNIQUE UNIQUE (SESSION_ID),
+    CONSTRAINT ROW_UNIQUE UNIQUE (ROW),
+    CONSTRAINT CELL_UNIQUE UNIQUE (CELL)
+);"; ожидалось "identifier"
+Syntax error in SQL statement "
+
+CREATE TABLE IF NOT EXISTS TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID),
+    CONSTRAINT SESSION_UNIQUE UNIQUE (SESSION_ID),
+    CONSTRAINT ROW_UNIQUE UNIQUE (ROW),
+    CONSTRAINT CELL_UNIQUE UNIQUE (CELL)
+);"; expected "identifier"; SQL statement:
+
+
+CREATE TABLE if not exists ticket (
+    id SERIAL PRIMARY KEY,
+    session_id INT NOT NULL REFERENCES sessions(id),
+    row INT NOT NULL,
+    cell INT NOT NULL,
+    user_id INT NOT NULL REFERENCES users(id),
+    CONSTRAINT session_unique UNIQUE (session_id),
+    CONSTRAINT row_unique UNIQUE (row),
+    CONSTRAINT cell_unique UNIQUE (cell)
+); [42001-200]
+2022-05-03 19:05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "
+
+CREATE TABLE IF NOT EXISTS TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID),
+    CONSTRAINT SESSION_UNIQUE UNIQUE (SESSION_ID),
+    CONSTRAINT ROW_UNIQUE UNIQUE (ROW),
+    CONSTRAINT CELL_UNIQUE UNIQUE (CELL)
+);"; ожидалось "identifier"
+Syntax error in SQL statement "
+
+CREATE TABLE IF NOT EXISTS TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID),
+    CONSTRAINT SESSION_UNIQUE UNIQUE (SESSION_ID),
+    CONSTRAINT ROW_UNIQUE UNIQUE (ROW),
+    CONSTRAINT CELL_UNIQUE UNIQUE (CELL)
+);"; expected "identifier"; SQL statement:
+
+
+CREATE TABLE if not exists ticket (
+    id SERIAL PRIMARY KEY,
+    session_id INT NOT NULL REFERENCES sessions(id),
+    row INT NOT NULL,
+    cell INT NOT NULL,
+    user_id INT NOT NULL REFERENCES users(id),
+    CONSTRAINT session_unique UNIQUE (session_id),
+    CONSTRAINT row_unique UNIQUE (row),
+    CONSTRAINT cell_unique UNIQUE (cell)
+); [42001-200]
+2022-05-03 19:07:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "
+
+CREATE TABLE IF NOT EXISTS TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID),
+    CONSTRAINT SESSION_UNIQUE UNIQUE (SESSION_ID),
+    CONSTRAINT ROW_UNIQUE UNIQUE (ROW),
+    CONSTRAINT CELL_UNIQUE UNIQUE (CELL)
+);"; ожидалось "identifier"
+Syntax error in SQL statement "
+
+CREATE TABLE IF NOT EXISTS TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID),
+    CONSTRAINT SESSION_UNIQUE UNIQUE (SESSION_ID),
+    CONSTRAINT ROW_UNIQUE UNIQUE (ROW),
+    CONSTRAINT CELL_UNIQUE UNIQUE (CELL)
+);"; expected "identifier"; SQL statement:
+
+
+CREATE TABLE if not exists ticket (
+    id SERIAL PRIMARY KEY,
+    session_id INT NOT NULL REFERENCES sessions(id),
+    row INT NOT NULL,
+    cell INT NOT NULL,
+    user_id INT NOT NULL REFERENCES users(id),
+    CONSTRAINT session_unique UNIQUE (session_id),
+    CONSTRAINT row_unique UNIQUE (row),
+    CONSTRAINT cell_unique UNIQUE (cell)
+); [42001-200]
+2022-05-03 19:07:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "
+
+CREATE TABLE IF NOT EXISTS TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID),
+    CONSTRAINT SESSION_UNIQUE UNIQUE (SESSION_ID),
+    CONSTRAINT ROW_UNIQUE UNIQUE (ROW),
+    CONSTRAINT CELL_UNIQUE UNIQUE (CELL)
+);"; ожидалось "identifier"
+Syntax error in SQL statement "
+
+CREATE TABLE IF NOT EXISTS TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID),
+    CONSTRAINT SESSION_UNIQUE UNIQUE (SESSION_ID),
+    CONSTRAINT ROW_UNIQUE UNIQUE (ROW),
+    CONSTRAINT CELL_UNIQUE UNIQUE (CELL)
+);"; expected "identifier"; SQL statement:
+
+
+CREATE TABLE if not exists ticket (
+    id SERIAL PRIMARY KEY,
+    session_id INT NOT NULL REFERENCES sessions(id),
+    row INT NOT NULL,
+    cell INT NOT NULL,
+    user_id INT NOT NULL REFERENCES users(id),
+    CONSTRAINT session_unique UNIQUE (session_id),
+    CONSTRAINT row_unique UNIQUE (row),
+    CONSTRAINT cell_unique UNIQUE (cell)
+); [42001-200]
+2022-05-03 20:19:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "
+
+CREATE TABLE IF NOT EXISTS TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID),
+    CONSTRAINT SESSION_UNIQUE UNIQUE (SESSION_ID),
+    CONSTRAINT ROW_UNIQUE UNIQUE (ROW),
+    CONSTRAINT CELL_UNIQUE UNIQUE (CELL)
+);"; ожидалось "identifier"
+Syntax error in SQL statement "
+
+CREATE TABLE IF NOT EXISTS TICKET (
+    ID SERIAL PRIMARY KEY,
+    SESSION_ID INT NOT NULL REFERENCES SESSIONS(ID),
+    ROW[*] INT NOT NULL,
+    CELL INT NOT NULL,
+    USER_ID INT NOT NULL REFERENCES USERS(ID),
+    CONSTRAINT SESSION_UNIQUE UNIQUE (SESSION_ID),
+    CONSTRAINT ROW_UNIQUE UNIQUE (ROW),
+    CONSTRAINT CELL_UNIQUE UNIQUE (CELL)
+);"; expected "identifier"; SQL statement:
+
+
+CREATE TABLE if not exists ticket (
+    id SERIAL PRIMARY KEY,
+    session_id INT NOT NULL REFERENCES sessions(id),
+    row INT NOT NULL,
+    cell INT NOT NULL,
+    user_id INT NOT NULL REFERENCES users(id),
+    CONSTRAINT session_unique UNIQUE (session_id),
+    CONSTRAINT row_unique UNIQUE (row),
+    CONSTRAINT cell_unique UNIQUE (cell)
+); [42001-200]
