@@ -6,14 +6,20 @@ import java.util.Objects;
 public class User implements Serializable {
 
     private int id;
-    private String name;
-    private String userName;
+    private String username;
+    private String email;
     private String phone;
 
-    public User(int id, String name, String userName, String phone) {
+    public User(int id, String username, String email, String phone) {
         this.id = id;
-        this.name = name;
-        this.userName = userName;
+        this.username = username;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    public User(String username, String email, String phone) {
+        this.username = username;
+        this.email = email;
         this.phone = phone;
     }
 
@@ -28,20 +34,20 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhone() {
@@ -61,21 +67,21 @@ public class User implements Serializable {
             return false;
         }
         User user = (User) o;
-        return id == user.id && Objects.equals(name, user.name);
+        return id == user.id && Objects.equals(username, user.username);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, username);
     }
 
     @Override
     public String toString() {
         return "User{"
                 + "id=" + id
-                + ", name='" + name
+                + ", username='" + username
                 + '\''
-                + ", userName='" + userName
+                + ", phone='" + phone
                 + '\''
                 + '}';
     }

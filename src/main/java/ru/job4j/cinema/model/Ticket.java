@@ -7,14 +7,14 @@ public class Ticket implements Serializable {
 
     private int id;
     private Session session_id;
-    private int row;
+    private int line;
     private int cell;
     private User user_id;
 
-    public Ticket(int id, Session session_id, int row, int cell, User user_id) {
+    public Ticket(int id, Session session_id, int line, int cell, User user_id) {
         this.id = id;
         this.session_id = session_id;
-        this.row = row;
+        this.line = line;
         this.cell = cell;
         this.user_id = user_id;
     }
@@ -38,12 +38,12 @@ public class Ticket implements Serializable {
         this.session_id = session_id;
     }
 
-    public int getRow() {
-        return row;
+    public int getLine() {
+        return line;
     }
 
-    public void setRow(int row) {
-        this.row = row;
+    public void setLina(int row) {
+        this.line = row;
     }
 
     public int getCell() {
@@ -71,12 +71,12 @@ public class Ticket implements Serializable {
             return false;
         }
         Ticket ticket = (Ticket) o;
-        return id == ticket.id && row == ticket.row && cell == ticket.cell;
+        return id == ticket.id && line == ticket.line && cell == ticket.cell;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, row, cell);
+        return Objects.hash(id, line, cell);
     }
 
     @Override
@@ -84,9 +84,10 @@ public class Ticket implements Serializable {
         return "Ticket{"
                 + "id=" + id
                 + ", session_id=" + session_id
-                + ", row=" + row
+                + ", row=" + line
                 + ", cell=" + cell
                 + ", user_id=" + user_id
                 + '}';
     }
+
 }
