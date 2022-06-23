@@ -33,22 +33,63 @@
     </nav>
     <div class="row">
         <table class="table">
+            <div class="card-body">
+                Бронирование билета
+                <form th:action="@{/formPayTicket}">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Сеанс</th>
-                <th scope="col">Ряд</th>
-                <th scope="col">Место</th>
+                <th scope="col">Ряд / Место</th>
+                <th scope="col">1</th>
+                <th scope="col">2</th>
+                <th scope="col">3</th>
+                <th scope="col">4</th>
+                <th scope="col">5</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="ticket:${tickets}">
-                <td th:text="${ticket.id}"></td>
-                <td th:text="${ticket.sessionId}"></td>
-                <td th:text="${ticket.line}"></td>
-                <td th:text="${ticket.cell}"></td>
+            <tr>
+                <th scope="row">1</th>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
+                <td><button type="submit" class="btn btn-primary">Купить</button></td>
             </tr>
             </tbody>
+                </form>
+            </div>
         </table>
     </div>
 </div>

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.job4j.cinema.model.User;
 import ru.job4j.cinema.persistence.UserDbStore;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,4 +32,11 @@ public class UserService {
                 ? Optional.of(user) : Optional.empty();
     }
 
+    public User findById(int id) {
+        return store.findByUserId(id);
+    }
+
+    public List<User> findAll() {
+        return store.findAll();
+    }
 }

@@ -8,6 +8,7 @@ import ru.job4j.cinema.persistence.SessionDbStore;
 import ru.job4j.cinema.persistence.TicketDbStore;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 @Service
 @ThreadSafe
@@ -16,12 +17,14 @@ public class SessionService {
     private final SessionDbStore sessionStore;
     private final TicketDbStore ticketStore;
 
-    private final int countOfLines = 10;
-    private final int countOfCells = 20;
+    private final int countOfLines;
+    private final int countOfCells;
 
     public SessionService(SessionDbStore sessionStore, TicketDbStore ticketStore) {
         this.sessionStore = sessionStore;
         this.ticketStore = ticketStore;
+        this.countOfLines = 10;
+        this.countOfCells = 20;
     }
 
     public Optional<Ticket> buyTicket(Ticket ticket) {
@@ -70,11 +73,14 @@ public class SessionService {
     }
 
     public List<Integer> getFindLines() {
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < countOfLines; i++) {
-            list.add(i);
-        }
-        return list;
+        /**
+       List<Integer> list = new ArrayList<>();
+       for (int i = 0; i < countOfLines; i++) {
+           list.add(i);
+       }
+       return list;
+         */
+        return IntStream.rangeClosed(1, countOfLines).boxed().toList();
     }
 
     public List<Integer> getFindCells() {

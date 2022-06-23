@@ -10,18 +10,22 @@ import ru.job4j.cinema.model.Ticket;
 import ru.job4j.cinema.model.User;
 import ru.job4j.cinema.service.SessionService;
 import ru.job4j.cinema.service.TicketService;
+import ru.job4j.cinema.service.UserService;
 
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 @Controller
 public class SessionController {
 
     private final SessionService service;
     private final TicketService ticketService;
+    private final UserService userService;
 
-    public SessionController(SessionService service, TicketService ticketService) {
+    public SessionController(SessionService service, TicketService ticketService, UserService userService) {
         this.service = service;
         this.ticketService = ticketService;
+        this.userService = userService;
     }
 
     @GetMapping("/sessions")
@@ -37,21 +41,30 @@ public class SessionController {
     }
 
     @GetMapping("/formPayTicket")
-    public String formPayTicket(Model model, @ModelAttribute Ticket ticket) {
-        model.addAttribute("line", service.getFindLines());
-        model.addAttribute("cell", service.getFindCells());
+    public String formPayTicket(Model model) {
+        //  model.addAttribute("line", service.getFindLines());
+        //  model.addAttribute("cell", service.getFindCells());
         model.addAttribute("sessions", service.findAll());
+        model.addAttribute("users", userService.findAll());
+        model.addAttribute("ticket", new Ticket(0, null, 0, 0, null));
         return "addTicket";
     }
 
     @PostMapping("/addTicket")
-    public String addTicket(Model model ,@ModelAttribute Ticket ticket, @RequestParam("session.id") int id) {
-        model.addAttribute("line", service.approveLine(
-                ticket.getSession_id()));
-        model.addAttribute("cell", service.approveCells(
-                ticket.getSession_id(), ticket.getCell()));
-        ticketService.add(ticket);
-        return "redirect:/sessions";
+    public String addTicket(@ModelAttribute Ticket ticket,
+                            @RequestParam("session.id") int sessionId,
+                            @RequestParam("user.id") int userId) {
+        //  model.addAttribute("line", service.approveLine(
+        //          ticket.getSession_id()));
+        //  model.addAttribute("cell", service.approveCells(
+        //          ticket.getSession_id(), ticket.getCell()));
+        //ticket.setSession_id(service.findById(sessionId));
+        //ticket.setUser_id(userService.findById(userId));
+        Optional<Ticket> addTicket = ticketService.add(ticket);
+        if (addTicket.isPresent()) {
+            return "redirect:/sessions";
+        }
+        return "sessions";
     }
 
     private User getUser(HttpSession session) {

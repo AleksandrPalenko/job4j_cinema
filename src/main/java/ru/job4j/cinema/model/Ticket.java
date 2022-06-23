@@ -11,6 +11,9 @@ public class Ticket implements Serializable {
     private int cell;
     private User user_id;
 
+    public Ticket() {
+    }
+
     public Ticket(int id, Session session_id, int line, int cell, User user_id) {
         this.id = id;
         this.session_id = session_id;
@@ -19,7 +22,11 @@ public class Ticket implements Serializable {
         this.user_id = user_id;
     }
 
-    public Ticket() {
+    public Ticket(int id, Session session_id, int line, int cell) {
+        this.id = id;
+        this.session_id = session_id;
+        this.line = line;
+        this.cell = cell;
     }
 
     public int getId() {
